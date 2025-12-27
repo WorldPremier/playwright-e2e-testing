@@ -1,36 +1,37 @@
 name: Playwright API Tests
+
 on:
   push:
-    branches: # runs on every push
-      - '**'
-  pull_request: # ruhs on every PR
     branches:
       - '**'
+  pull_request:
+    branches:
+      - '**'
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-      uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
 
-    - name: Install dependencies
-      run: npm install --force
+      - name: Install dependencies
+        run: npm install --force
 
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps --force
-      
-    - name: Run Playwright tests
-      run: npm run test:api
-      
-    - name: Upload Playwright report
-    if: ${{ !cancelled() }}
-    uses: actions/upload-artifact@v4
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps --force
+
+      - name: Run Playwright tests
+        run: npm run test:api
+
+      - name: Upload Playwright report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
