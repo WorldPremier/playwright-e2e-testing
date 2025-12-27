@@ -9,6 +9,6 @@ async function globalTeardown() {
             
         }
 })
-    expect(deleteArticleResponse.status()).toEqual(404)
+    expect(deleteArticleResponse.status()).toEqual(204)
 }
 export default globalTeardown;

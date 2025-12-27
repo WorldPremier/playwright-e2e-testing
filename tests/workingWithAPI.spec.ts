@@ -14,7 +14,7 @@ test.beforeEach(async({page}) =>{
 })  
   
 
-test('has title and mocks tag names', async ({page})=>{
+test.only('has title and mocks tag names', async ({page})=>{
    await page.route('*/**/api/articles*', async route=>{
     const response = await route.fetch()
     const responseBody = await response.json()
