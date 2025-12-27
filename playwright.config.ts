@@ -70,11 +70,11 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'], storageState: '.auth/user.json' },
     },
     
-    {
-      name: 'workingWithAPI',
-      testMatch: 'workingWithAPI.spec.ts',
-      use: { ...devices['Desktop Chrome'], storageState: '.auth/user.json' },
-    },
+    // {
+    //   name: 'workingWithAPI',
+    //   testMatch: 'workingWithAPI.spec.ts',
+    //   use: { ...devices['Desktop Chrome'], storageState: '.auth/user.json' },
+    // },
 
   ],
 

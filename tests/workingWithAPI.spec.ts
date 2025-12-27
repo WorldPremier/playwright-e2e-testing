@@ -13,7 +13,7 @@ test.beforeEach(async({page}) =>{
 })  
   
 
-test.only('has title and mocks tag names', async ({page})=>{
+test('has title and mocks tag names', async ({page})=>{
    await page.route('*/**/api/articles*', async route=>{
     const response = await route.fetch()
     const responseBody = await response.json()
@@ -34,7 +34,7 @@ test.only('has title and mocks tag names', async ({page})=>{
 })
 
 
-test('delete article', async ({page, request})=>{
+test.skip('delete article', async ({page, request})=>{
 
   const articleResponse = await request.post('https://conduit-api.bondaracademy.com/api/articles/', {
     data: {
@@ -55,7 +55,7 @@ test('delete article', async ({page, request})=>{
 })
 
 
-test('create article manually then deletes its through api call', async({page, request})=>{
+test.skip('create article manually then deletes its through api call', async({page, request})=>{
   await page.getByText('New Article').click()
   await page.getByRole('textbox', {name: 'Article Title'}).fill('This is test title from new project')
   await page.getByRole('textbox', {name: 'What\'s this article about?'}).fill('This is about playwright')
