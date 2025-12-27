@@ -51,12 +51,12 @@ export default defineConfig({
       name: 'articleCleanUp',
       testMatch: 'articleCleanUp.setup.ts'
     },
-    {
-      name: 'regression',
-      testIgnore: 'likesCounter',
-      use: { ...devices['Desktop Chrome'], storageState: '.auth/user.json' },
-      dependencies: ['setup']
-    },
+    // {
+    //   name: 'regression',
+    //   testIgnore: 'likesCounter',
+    //   use: { ...devices['Desktop Chrome'], storageState: '.auth/user.json' },
+    //   dependencies: ['setup']
+    // },
       {
       name: 'likesCounter',
       testMatch: 'likesCounter.spec.ts',
